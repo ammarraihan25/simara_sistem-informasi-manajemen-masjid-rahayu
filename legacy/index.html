@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SIMARA - Sistem Informasi Manajemen Masjid Rahayu</title>
+    <meta name="description" content="Sistem Informasi Manajemen Masjid Rahayu (SIMARA) untuk pengelolaan jadwal sholat, keuangan, dan artikel kegiatan masjid.">
+    <link rel="stylesheet" href="style.css">
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <nav>
+        <div class="container nav-container">
+            <a href="#" class="logo" onclick="navigateTo('home')">
+                <i data-lucide="mosque"></i>
+                SIMARA<span>.</span>
+            </a>
+            
+            <div class="nav-links" id="navLinks">
+                <a href="#" onclick="navigateTo('home')" class="nav-item active" data-page="home">Beranda</a>
+                <a href="#" onclick="navigateTo('jadwal')" class="nav-item" data-page="jadwal">Jadwal Sholat</a>
+                <a href="#" onclick="navigateTo('keuangan')" class="nav-item" data-page="keuangan">Keuangan</a>
+                <a href="#" onclick="navigateTo('artikel')" class="nav-item" data-page="artikel">Artikel</a>
+                <a href="#" onclick="navigateTo('tentang')" class="nav-item" data-page="tentang">Tentang</a>
+                <a href="#" onclick="navigateTo('kontak')" class="nav-item" data-page="kontak">Kontak</a>
+                <a href="#" onclick="navigateTo('login')" class="login-btn">Login Takmir</a>
+            </div>
+
+            <div class="menu-toggle" id="menuToggle">
+                <i data-lucide="menu"></i>
+            </div>
+        </div>
+    </nav>
+
+    <main id="appContent">
+        <!-- Content will be injected here -->
+    </main>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-info">
+                    <h3 class="logo" style="color: white">SIMARA<span>.</span></h3>
+                    <p>Sistem Informasi Manajemen Masjid Rahayu</p>
+                    <p>Jl. Songgorunggi No. 17C, Bumi, Kec.Laweyan, Kota Surakarta.</p>
+                </div>
+                <div class="footer-info">
+                    <h4>Menu Cepat</h4>
+                    <ul>
+                        <li><a href="#" onclick="navigateTo('home')">Beranda</a></li>
+                        <li><a href="#" onclick="navigateTo('jadwal')">Jadwal Sholat</a></li>
+                        <li><a href="#" onclick="navigateTo('keuangan')">Laporan Keuangan</a></li>
+                        <li><a href="#" onclick="navigateTo('artikel')">Artikel & Berita</a></li>
+                    </ul>
+                </div>
+                <div class="footer-info">
+                    <h4>Kontak Kami</h4>
+                    <p><i data-lucide="phone" style="width: 16px; display: inline"></i> +62 812-3456-7890</p>
+                    <p><i data-lucide="mail" style="width: 16px; display: inline"></i> info@masjidrahayu.com</p>
+                    <div style="display: flex; gap: 15px; margin-top: 20px;">
+                        <a href="#"><i data-lucide="facebook"></i></a>
+                        <a href="#"><i data-lucide="instagram"></i></a>
+                        <a href="#"><i data-lucide="youtube"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2026 Masjid Rahayu Surakarta. SIMARA - Sistem Informasi Manajemen Masjid Rahayu.
+            </div>
+        </div>
+    </footer>
+
+    <script src="admin.js"></script>
+    <script src="app.js"></script>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>
