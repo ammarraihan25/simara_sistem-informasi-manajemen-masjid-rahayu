@@ -41,7 +41,7 @@
             <a href="{{ route('artikel') }}" style="color: var(--secondary); font-weight: 600">Lihat Semua →</a>
         </div>
         
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px;">
+        <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 30px;">
             @foreach($latestArticles as $art)
             <div class="card">
                 <img src="{{ $art->image ?? 'https://via.placeholder.com/400x250' }}" style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px;">
