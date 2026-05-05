@@ -24,12 +24,12 @@
                     @csrf
                     <div class="form-group" style="margin-bottom: 15px;"><label>Tanggal</label><input type="date" name="date" class="form-control" required style="width:100%; padding:10px; border:1px solid #ddd; border-radius:8px;"></div>
                     <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 15px;">
-                        <div><label>Subuh</label><input type="text" name="subuh" class="form-control" placeholder="04:30" required style="width:100%; padding:8px; border:1px solid #ddd; border-radius:8px;"></div>
-                        <div><label>Dzuhur</label><input type="text" name="dzuhur" class="form-control" placeholder="11:45" required style="width:100%; padding:8px; border:1px solid #ddd; border-radius:8px;"></div>
-                        <div><label>Ashar</label><input type="text" name="ashar" class="form-control" placeholder="15:00" required style="width:100%; padding:8px; border:1px solid #ddd; border-radius:8px;"></div>
-                        <div><label>Maghrib</label><input type="text" name="maghrib" class="form-control" placeholder="17:40" required style="width:100%; padding:8px; border:1px solid #ddd; border-radius:8px;"></div>
+                        <div><label>Subuh</label><input type="text" name="subuh" class="form-control time-input" placeholder="04:30" required style="width:100%; padding:8px; border:1px solid #ddd; border-radius:8px;"></div>
+                        <div><label>Dzuhur</label><input type="text" name="dzuhur" class="form-control time-input" placeholder="11:45" required style="width:100%; padding:8px; border:1px solid #ddd; border-radius:8px;"></div>
+                        <div><label>Ashar</label><input type="text" name="ashar" class="form-control time-input" placeholder="15:00" required style="width:100%; padding:8px; border:1px solid #ddd; border-radius:8px;"></div>
+                        <div><label>Maghrib</label><input type="text" name="maghrib" class="form-control time-input" placeholder="17:40" required style="width:100%; padding:8px; border:1px solid #ddd; border-radius:8px;"></div>
                     </div>
-                    <div class="form-group" style="margin-bottom: 15px;"><label>Isya</label><input type="text" name="isya" class="form-control" placeholder="18:50" required style="width:100%; padding:8px; border:1px solid #ddd; border-radius:8px;"></div>
+                    <div class="form-group" style="margin-bottom: 15px;"><label>Isya</label><input type="text" name="isya" class="form-control time-input" placeholder="18:50" required style="width:100%; padding:8px; border:1px solid #ddd; border-radius:8px;"></div>
                     <div class="form-group" style="margin-bottom: 15px;"><label>Petugas Imam</label><input type="text" name="petugas_imam" class="form-control" required style="width:100%; padding:10px; border:1px solid #ddd; border-radius:8px;"></div>
                     <div class="form-group" style="margin-bottom: 15px;"><label>Petugas Khotib (Khusus Jumat)</label><input type="text" name="petugas_khotib" class="form-control" style="width:100%; padding:10px; border:1px solid #ddd; border-radius:8px;"></div>
                     <button type="submit" class="btn btn-primary" style="width: 100%;">Simpan Jadwal</button>
@@ -78,3 +78,37 @@
     </div>
 </div>
 @endsection
+
+@push('scripts')
+<script>
+document.querySelectorAll('.time-input').forEach(input => {
+    input.addEventListener('input', function(e) {
+        let value = e.target.value.replace(/[^0-9.:]/g, '');
+        
+        // Replace . with :
+        value = value.replace(/\./g, ':');
+        
+        // Auto insert : after 2 digits if not present
+        if (value.length === 2 && !value.includes(':')) {
+            value = value + ':';
+        }
+        
+        // Limit to 5 characters (HH:mm)
+        if (value.length > 5) {
+            value = value.substring(0, 5);
+        }
+        
+        e.target.value = value;
+    });
+
+    input.addEventListener('blur', function(e) {
+        let value = e.target.value;
+        // Simple validation/formatting on blur
+        if (value.length === 4 && !value.includes(':')) {
+            value = value.substring(0, 2) + ':' + value.substring(2);
+        }
+        e.target.value = value;
+    });
+});
+</script>
+@endpush
