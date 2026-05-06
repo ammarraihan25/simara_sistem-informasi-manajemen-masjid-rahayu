@@ -129,7 +129,7 @@ section {
 }
 
 .hero {
-    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://lh3.googleusercontent.com/gps-cs-s/APNQkAG5N2kWenl45n0whJmWlNvWGQ__SlmzXVWmYDyDM2iTEtJn65gtS0VBZwEdM_IkFeK6T3ZRJDQYI76YFJ0kR_m6DUaIbwOw_tByOqqlztXG6NQpMlF_SPdjscrbTKyNC3YgPPBw=s1360-w1360-h1020-rw');
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('../images/hero-bg.webp');
     background-size: cover;
     background-position: center;
     color: white;
