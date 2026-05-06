@@ -37,6 +37,8 @@ Route::prefix('admin')->name('admin.')->group(function() {
         // Manajemen Artikel
         Route::get('/articles', [AdminController::class, 'articlesIndex'])->name('articles.index');
         Route::post('/articles', [AdminController::class, 'articlesStore'])->name('articles.store');
+        Route::get('/articles/{article}/edit', [AdminController::class, 'articlesEdit'])->name('articles.edit');
+        Route::put('/articles/{article}', [AdminController::class, 'articlesUpdate'])->name('articles.update');
         Route::delete('/articles/{article}', [AdminController::class, 'articlesDestroy'])->name('articles.destroy');
     });
 });

@@ -37,11 +37,17 @@
                     <div style="border: 1px solid var(--border); border-radius: 8px; overflow: hidden;">
                         <img src="{{ $art->image ?? 'https://via.placeholder.com/200x120' }}" style="width:100%; height:120px; object-fit:cover;">
                         <div style="padding: 10px;">
-                            <h4 style="font-size: 0.9rem;">{{ $art->title }}</h4>
-                            <form action="{{ route('admin.articles.destroy', $art->id) }}" method="POST" style="margin-top: 10px;">
-                                @csrf @method('DELETE')
-                                <button style="color: #ef4444; border:none; background:none; cursor:pointer; font-size: 0.8rem;">Hapus Artikel</button>
-                            </form>
+                            <h4 style="font-size: 0.9rem; margin-bottom: 10px;">{{ $art->title }}</h4>
+                            
+                            <!-- Dibungkus display: flex agar Edit dan Hapus bersebelahan -->
+                            <div style="display: flex; gap: 15px; align-items: center;">
+                                <a href="{{ route('admin.articles.edit', $art->id) }}" style="color: var(--secondary); font-size: 0.8rem; text-decoration: none;">Edit</a>
+                                
+                                <form action="{{ route('admin.articles.destroy', $art->id) }}" method="POST" style="margin: 0;">
+                                    @csrf @method('DELETE')
+                                    <button type="submit" style="color: #ef4444; border:none; background:none; cursor:pointer; font-size: 0.8rem;" onclick="return confirm('Yakin ingin menghapus artikel ini?')">Hapus</button>
+                                </form>
+                            </div>
                         </div>
                     </div>
                     @endforeach

@@ -168,6 +168,32 @@ class AdminController extends Controller
         return back()->with('success', 'Artikel baru berhasil diterbitkan.');
     }
 
+    public function articlesEdit(Article $article)
+    {
+        // Menampilkan halaman edit dengan membawa data artikel lama
+        return view('admin.articles_edit', compact('article'));
+    }
+
+    public function articlesUpdate(Request $request, Article $article)
+    {
+        // 1. Validasi input (Best Practice Keamanan)
+        $data = $request->validate([
+            'title' => 'required|max:255',
+            'content' => 'required',
+            'date' => 'required|date',
+            'image' => 'nullable|url',
+        ]);
+
+        // Opsional: Update slug jika judul berubah
+        $data['slug'] = Str::slug($data['title']) . '-' . time();
+
+        // 2. Simpan pembaruan ke database
+        $article->update($data);
+
+        // 3. Kembalikan ke halaman daftar dengan pesan sukses
+        return redirect()->route('admin.articles.index')->with('success', 'Artikel berhasil diperbarui.');
+    }
+
     public function articlesDestroy(Article $article)
     {
         $article->delete();
