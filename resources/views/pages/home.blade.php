@@ -46,7 +46,12 @@
             <div class="card">
                 <img src="{{ $art->image ?? 'https://via.placeholder.com/400x250' }}" style="width: 100%; height: 200px; object-fit: cover; border-radius: 8px;">
                 <h3 style="margin: 15px 0">{{ $art->title }}</h3>
-                <p style="color: var(--text-muted)">{{ Str::limit($art->content, 100) }}</p>
+                <p style="color: var(--text-muted); margin-bottom: 15px;">{{ Str::limit($art->content, 100) }}</p>
+                
+                <!-- Tambahkan tombol ini -->
+                <a href="{{ route('artikel.detail', $art->slug) }}" style="display: inline-block; padding: 8px 20px; background-color: var(--primary); color: white; border-radius: 8px; font-weight: 500; text-decoration: none; transition: 0.3s;">
+                    Baca Selengkapnya →
+                </a>
             </div>
             @endforeach
         </div>

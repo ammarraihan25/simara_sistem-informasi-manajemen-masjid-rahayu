@@ -18,7 +18,9 @@
                 <span style="color: var(--secondary); font-size: 0.8rem; font-weight: 600">{{ $art->date }}</span>
                 <h3 style="margin: 10px 0">{{ $art->title }}</h3>
                 <p style="color: var(--text-muted)">{{ Str::limit($art->content, 150) }}</p>
-                <button class="btn" style="padding: 10px 0; color: var(--primary)">Baca Selengkapnya</button>
+                <a href="{{ route('artikel.detail', $art->slug) }}" style="display: inline-block; margin-top: 10px; padding: 8px 20px; background-color: var(--primary); color: white; border-radius: 8px; font-weight: 500; text-decoration: none; transition: 0.3s;">
+                    Baca Selengkapnya →
+                </a>
             </div>
             @empty
             <div style="grid-column: 1/-1; text-align: center; padding: 50px;">

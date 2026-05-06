@@ -8,6 +8,7 @@ Route::get('/', [PublicController::class, 'home'])->name('home');
 Route::get('/jadwal', [PublicController::class, 'jadwal'])->name('jadwal');
 Route::get('/keuangan', [PublicController::class, 'keuangan'])->name('keuangan');
 Route::get('/artikel', [PublicController::class, 'artikel'])->name('artikel');
+Route::get('/artikel/{slug}', [PublicController::class, 'showArticle'])->name('artikel.detail');
 Route::get('/tentang', [PublicController::class, 'tentang'])->name('tentang');
 Route::get('/kontak', [PublicController::class, 'kontak'])->name('kontak');
 

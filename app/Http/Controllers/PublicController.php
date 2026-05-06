@@ -37,6 +37,15 @@ class PublicController extends Controller
         return view('pages.artikel', compact('articles'));
     }
 
+    public function showArticle($slug)
+    {
+        // Best Practice: Gunakan firstOrFail() agar jika artikel 
+        // tidak ditemukan, Laravel otomatis menampilkan halaman 404 Not Found.
+        $article = Article::where('slug', $slug)->firstOrFail();
+        
+        return view('pages.artikel_detail', compact('article'));
+    }
+
     public function tentang()
     {
         return view('pages.tentang');
