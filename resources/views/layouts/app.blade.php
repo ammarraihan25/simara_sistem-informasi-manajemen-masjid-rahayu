@@ -22,7 +22,13 @@
                 <a href="{{ route('artikel') }}" class="{{ request()->routeIs('artikel') ? 'active' : '' }}">Artikel</a>
                 <a href="{{ route('tentang') }}" class="{{ request()->routeIs('tentang') ? 'active' : '' }}">Tentang</a>
                 <a href="{{ route('kontak') }}" class="{{ request()->routeIs('kontak') ? 'active' : '' }}">Kontak</a>
-                <a href="{{ route('admin.login') }}" class="login-btn">Login</a>
+                @auth
+                    <!-- Jika sudah login, tampilkan tombol ke Dashboard -->
+                    <a href="{{ route('admin.dashboard') }}" class="login-btn">Dashboard Admin</a>
+                @else
+                    <!-- Jika belum login (tamu), tampilkan tombol Login -->
+                    <a href="{{ route('admin.login') }}" class="login-btn">Login</a>
+                @endauth
             </div>
         </div>
     </nav>

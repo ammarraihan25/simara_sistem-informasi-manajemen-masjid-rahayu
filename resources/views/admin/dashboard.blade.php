@@ -6,7 +6,13 @@
         <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 30px;">
             <div>
                 <h1 style="margin: 0;">Dashboard Admin</h1>
-                <p style="color: var(--text-muted)">Selamat datang kembali, Takmir Masjid Rahayu</p>
+                <p style="color: var(--text-muted)">
+                    Selamat datang kembali, <strong>{{ auth()->user()->name }}</strong>.
+                    <br>
+                    <span style="color: var(--text-muted); font-size: 0.9rem;">
+                        Login sebagai: {{ auth()->user()->email }}
+                    </span>
+                </p>
             </div>
             <form action="{{ route('admin.logout') }}" method="POST">
                 @csrf
