@@ -3,7 +3,7 @@
 @section('content')
 <div class="hero" style="padding: 60px 0;">
     <div class="container">
-        <h1>Jadwal Sholat & Petugas</h1>
+        <h1>Jadwal Sholat</h1>
         <p>Informasi waktu ibadah harian Masjid Rahayu</p>
     </div>
 </div>
@@ -48,17 +48,6 @@
         </div>
     </div>
 
-    <div class="card">
-        <h3>Petugas Ibadah</h3>
-        <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 20px;">
-            @foreach($schedules->whereNotNull('petugas_khotib') as $s)
-            <div style="padding: 20px; border: 1px solid var(--border); border-radius: 8px;">
-                <h4 style="color: var(--secondary)">{{ $s->date }} (Jumat)</h4>
-                <p style="margin-top: 10px;"><strong>Imam:</strong> {{ $s->petugas_imam }}</p>
-                <p><strong>Khotib:</strong> {{ $s->petugas_khotib }}</p>
-            </div>
-            @endforeach
-        </div>
-    </div>
+
 </section>
 @endsection

@@ -26,9 +26,7 @@
         <div class="prayer-card"><h4>Maghrib</h4><div class="time">{{ $todaySchedule->maghrib }}</div></div>
         <div class="prayer-card"><h4>Isya</h4><div class="time">{{ $todaySchedule->isya }}</div></div>
     </div>
-    <div style="margin-top: 30px; text-align: center; background: white; padding: 20px; border-radius: 12px; border: 1px solid var(--border);">
-        <p><strong>Imam:</strong> {{ $todaySchedule->petugas_imam }} | <strong>Muadzin:</strong> {{ $todaySchedule->petugas_muadzin }}</p>
-    </div>
+
     @else
     <p style="text-align: center;">Jadwal belum tersedia untuk hari ini.</p>
     @endif

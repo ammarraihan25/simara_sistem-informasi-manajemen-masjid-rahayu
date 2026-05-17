@@ -105,10 +105,12 @@ class AdminController extends Controller
             'ashar' => 'required',
             'maghrib' => 'required',
             'isya' => 'required',
-            'petugas_imam' => 'required',
+            'petugas_imam' => 'nullable',
             'petugas_muadzin' => 'nullable',
             'petugas_khotib' => 'nullable',
         ]);
+
+        $data['petugas_imam'] = $data['petugas_imam'] ?? '-';
 
         Schedule::create($data);
         return back()->with('success', 'Jadwal baru berhasil ditambahkan.');
