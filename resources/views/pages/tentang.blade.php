@@ -11,7 +11,7 @@
 <section class="container">
     <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 50px; align-items: center;">
         <div>
-            <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?auto=format&fit=crop&q=80&w=1000" style="width: 100%; border-radius: 20px; box-shadow: var(--shadow-lg);">
+            <img src="{{ asset('images/tentang.jfif') }}" style="width: 100%; border-radius: 20px; box-shadow: var(--shadow-lg);">
         </div>
         <div>
             <h2>Profil & Sejarah</h2>
